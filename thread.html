@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="top-bar">
+      <h1>My Forum</h1>
+    </div>
+    <div class="main main2">
+    <div class="header">
+    </div>
+    <textarea></textarea>
+    <button type="button" name="button">Add Comment</button>
+    <div class="comments">
+    </div>
+  </div>
+  <script type="text/javascript"`>
+    var id = window.location.search.slice(4);
+    console.log(id);
+    console.log(threads);
+    var thread = threads.find(t => t.id == id);
+    console.log(thread);
+    var header = document.querySelector('.header');
+    var headerHtml = `
+    <h4 class="title">${thread.title}</h4>
+    <div class="bottom">
+      <p class="timestamp">${new Date(thread.date).toLocaleString()}</p>
+      <p class="comment-count">${thread.comments.length} comments</p>
+    `;
+    header.insertAdjacentHTML('beforeend', headerHtml);
+    function addComment(comment) {
+      var commentHtml = `
+      <div class="comment">
+        <div class="top-comment">
+          <p class="user">${comment.author}</p>
+          <p class="timestamp timestamp2">${new Date(comment.date).toLocaleString()}</p>
+        </div>
+        <div class="comment-content">
+          ${comment.content}
+        </div>
+      </div>
+      `;
+          comments.insertAdjacentHTML('beforeend', commentHtml);
+    }
+    var comments = document.querySelector('.comments');
+    console.log(comments);
+    for(let comment of thread.comments) {
+      addComment(comment);
+    }
+
+    var btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+      var txt = document.querySelector('textarea');
+      var comment = {
+        content: txt.value,
+        date: Date.now(),
+        author: 'Maverick'
+      }
+      addComment(comment);
+      txt.value = '';
+      thread.comments.push(comment);
+      localStorage.setItem('threads', JSON.stringify(threads));
+    });
+  </script>
+  </body>
+</html>

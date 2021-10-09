@@ -1,0 +1,75 @@
+body {
+  margin: 10px 60px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1, h4, ol {
+  margin: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+textarea {
+  width: 80%;
+  height: 80px;
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+}
+
+.top-bar {
+  background-color: skyblue;
+  padding: 0 40px;
+}
+
+.main {
+  background-color:lightgray;
+  padding: 10px 15px;
+}
+
+.main2 {
+  padding: 10px 40px;
+}
+
+.comments {
+  margin: 40px 0;
+  padding:1px;
+  background-color:#e7e7e7;
+}
+
+.comment {
+  margin: 40px;
+  padding:10px 15px;
+  padding-bottom:15px;
+  background-color: #f0f0f0;
+}
+
+.row {
+  padding: 5px 0;
+}
+
+.top-comment > .user {
+  color:royalblue;
+}
+
+.bottom {
+  display: flex;
+  color:#36454f;
+  font-size:12px;
+}
+
+.timestamp {
+  padding-right: 10px;
+}
+
+.timestamp2 {
+  font-size:12px;
+}
